@@ -1,0 +1,45 @@
+﻿
+@using doanmonhocweb.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<Sach>
+@{
+    ViewBag.Title = "Sách Ngoại Văn Kinh Doanh";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+<title>Cửa Hàng Sách Me&Book| @ViewBag.Title </title>
+<link href="~/Content/style/content.css" rel="stylesheet" />
+<div class="featured category">
+    <div class="tab"><h3 class="title-category"><b>BUSINESS-ECONOMY</b></h3></div>
+    <div class="main-category">
+        @{
+            foreach (var item in Model)
+            {
+                <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })">
+                    <div class="childbook">
+
+                        <div class="book">
+                            <div class="img">
+
+
+                                <img src="@Url.Content("~/Content/ImgBook/"+ item.HinhAnh)" />
+
+                            </div>
+                        </div>
+                        <div class="btn_book">
+                            <div class="titlebook"><p>@item.Ten_Sach</p></div>
+                            <div class="author_book"><p>@item.Tac_Gia</p></div>
+                            <div class="pricebook">@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</div>
+                        </div>
+
+                    </div>
+                </a>
+            }
+        }
+
+        <div class="Pagelist">
+            <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+            @Html.PagedListPager(Model, page => Url.Action("Sach_Ngoai_Van_Kinh_Doanh", new { page = page }))
+        </div>
+    </div>
+</div>
+

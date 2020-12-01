@@ -1,0 +1,108 @@
+﻿@using doanmonhocweb.Models
+@model IEnumerable<Khach_Hang>
+
+
+@{
+    ViewBag.Title = "Quản Lý Thông Tin";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdministrator.cshtml";
+}
+<link href="~/Areas/Admin/Content/AdminStyle/style/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/AdminStyle/Adminstylesheet.css" rel="stylesheet" />
+<title>Trang Quản Trị| @ViewBag.Title </title>
+<div class="contentAd">
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Mã Khách Hàng")
+            </th>
+            <th>
+                @Html.Label("Họ Khách Hàng")
+            </th>
+            <th>
+                @Html.Label("Tên Khách Hàng")
+            </th>
+            
+            <th>
+                @Html.Label("Mật Khẩu")
+            </th>
+            <th>
+                @Html.Label("Ngày Sinh")
+            </th>
+            <th>
+                @Html.Label("Giới Tính")
+            </th>
+            <th>
+                @Html.Label("Email")
+            </th>
+            <th>
+                @Html.Label("Điện Thoại")
+            </th>
+            <th>
+                @Html.Label("Địa Chỉ")
+            </th>
+            <th>
+                @Html.Label("Kiểm Duyệt")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ma_Khach_Hang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenKH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDangNhap)
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.MatKhau)
+                </td>
+                <td>
+                    @String.Format("{0:dd/MM/yyyy }", Model.NgaySinh)
+                </td>
+                <td>
+                    @{
+                        if (item.Gioi_tinh == "1")
+                        {
+                            @Html.Label("Nam")
+                        }
+                        else
+                        {
+                            @Html.Label("Nữ")
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DienThoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DaDuyet)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { @Ma_Khach_Hang = item.Ma_Khach_Hang }) |
+                    @Html.ActionLink("Thông tin", "Details", new { @Ma_Khach_Hang = item.Ma_Khach_Hang }) |
+                    
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

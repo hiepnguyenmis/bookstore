@@ -1,0 +1,24 @@
+*{
+	margin: 0 auto;
+	padding: 0 ;
+}
+body{
+	font-family: sans-serif;
+	font-size:17px;
+	margin: 0 auto;
+	padding: 0 ;
+	background-color: #ffffff;
+}
+.wrapper{
+	width: 1349px;
+    height:auto;
+	margin: 0 auto;
+	padding: 0 ;
+	background-color: #E9EBEE;
+}
+li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}

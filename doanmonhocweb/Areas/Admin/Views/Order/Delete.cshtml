@@ -1,0 +1,112 @@
+﻿@model doanmonhocweb.Models.DATHANG
+
+@{
+    ViewBag.Title = "Xác Nhận Xóa";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdministrator.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/AdminStyle/Adminstylesheet.css" rel="stylesheet" />
+<title>Trang Quản Trị| @ViewBag.Title </title>
+<div class="contentAd">
+    <h3>Bạn Có Chắc Chắn Muốn Xóa Đơn Hàng Này?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Ngày Đặt Hàng: ")
+            </dt>
+
+            <dd>
+                @String.Format("{0:dd/MM/yyyy}", Model.NgayDatHang)
+            </dd>
+            <dt>
+                @Html.Label("Tên Người Nhận: ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenNguoiNhan)
+            </dd>
+
+            <dt>
+                @Html.Label("Số Điện Thoại: ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoDienThoai)
+            </dd>
+
+            <dt>
+                @Html.Label("Địa Chỉ Nhận:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiaChiNhan)
+            </dd>
+
+            <dt>
+                @Html.Label("Hình Thức Thanh Toán:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhThucThanhToan)
+            </dd>
+
+        </dl>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.Label("Tên Sách")
+                </th>
+                <th>
+                    @Html.Label("Số Lượng")
+                </th>
+                <th>
+                    @Html.Label("Đơn Giá")
+                </th>
+            </tr>
+
+            @foreach (var item in Model.CTDATHANGs)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sach.Ten_Sach)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoLuong)
+                    </td>
+
+                    <td>
+                        @String.Format("{0:0,0 }", item.DonGia).Replace(",", ".") VNĐ
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    @Html.Label("Tổng Trị Giá Đơn Hàng")
+                </td>
+                <td>
+                    <span style="color:red; font-size:20px;">
+                        @String.Format("{0:0,0 }", Model.TriGia).Replace(",", ".")
+                    </span>
+                </td>
+                <td>
+                    VNĐ
+                </td>
+            </tr>
+        </table>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> |
+            <a href=" @Url.Action("Order", "Order")">
+                <input type="button" value="Trở về" class="btn btn-default" />
+            </a>
+           
+        </div>
+        }
+    </div>
+</div>

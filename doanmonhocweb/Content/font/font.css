@@ -1,0 +1,64 @@
+/*mô tả font baner*/
+@font-face{
+	font-family: "coiny";
+	src:url('Coiny-Regular.ttf');
+}
+@font-face{
+	font-family: "BalooTammudu";
+	src:url('BalooTammudu-Regular.ttf');
+}
+/*mô tả sách bán chạy*/
+@font-face{
+	font-family: "Pacifico";
+	src:url('Pacifico-Regular.ttf');
+}
+/*Giá bán*/
+@font-face{
+	font-family: "Yanone";
+	src:url('YanoneKaffeesatz-Bold.ttf');
+}
+/*font tiêu đề*/
+@font-face{
+	font-family: "Varela";
+	src:url('VarelaRound-Regular.ttf');
+}
+/*font tên sách*/
+@font-face {
+    font-family: "Bungee";
+    src: url('Bungee-Regular.ttf');
+}
+/*font tên tác giả*/
+@font-face {
+    font-family: "Playfair";
+    src: url('PlayfairDisplay-BoldItalic.ttf');
+}
+/*FONT TÊN NHÀ XUẤT BẢN*/
+@font-face {
+    font-family: "Lobster";
+    src: url('Lobster-Regular.ttf');
+}
+/*FONT VPP*/
+@font-face {
+    font-family: "Anton";
+    src: url('Anton-Regular.ttf');
+}
+/*FONT TRONG TRANG SINGLE*/
+@font-face {
+    font-family: 'Muli-Regular';
+    src: url('Muli-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('Lato-Regular.ttf') format('truetype');
+}
+
+/*@font-face {
+    font-family: 'BreeSerif-Regular';
+    src: url('BreeSerif-Regular.ttf') format('truetype');
+}*/
+/*font tac gia trong trang single*/
+@font-face {
+    font-family: 'Charmonman';
+    src: url('Charmonman-Bold.ttf');
+}

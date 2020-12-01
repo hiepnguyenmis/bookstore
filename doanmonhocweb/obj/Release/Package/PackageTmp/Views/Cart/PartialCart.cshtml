@@ -1,0 +1,14 @@
+﻿<style>
+    .SoLuongMua{position:absolute;left:90%;bottom:50%; text-align:center; width:20px;height:20px; z-index: 100; border:2px; border-radius:50%; -moz-border-radius:50%;-webkit-border-radius:50%; background-color:#ffffff;}
+</style>
+<div class="cart">
+    <a href="@Url.Action("GioHang","Cart")">
+        <img src="~/Content/image-header/cart.svg" style="width:35px; height:35px;" />
+        @{
+            if (Session["GioHang"] != null)
+            {
+                <div class="SoLuongMua">@ViewBag.TongSoLuong</div>
+            }
+        }
+    </a>
+</div>

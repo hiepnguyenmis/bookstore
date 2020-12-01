@@ -1,0 +1,13 @@
+﻿.header{
+    height:177px;
+}
+.img_heder {
+    position: absolute;
+    height: 177px;
+    width: 100%;
+}
+.img_heder>img{
+    position:absolute;
+    height:177px;
+    width:100%;
+}

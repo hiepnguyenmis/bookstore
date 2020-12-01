@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="data_MBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChuDe">
+    <Key>
+      <PropertyRef Name="MaCD" />
+    </Key>
+    <Property Name="MaCD" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenCD" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="CTDATHANG">
+    <Key>
+      <PropertyRef Name="SoHD" />
+      <PropertyRef Name="MaHangHoa" />
+    </Key>
+    <Property Name="SoHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaHangHoa" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SoLuong" Type="nvarchar" MaxLength="10" />
+    <Property Name="DonGia" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="ThanhTien" Type="money" />
+  </EntityType>
+  <EntityType Name="DATHANG">
+    <Key>
+      <PropertyRef Name="SoHD" />
+    </Key>
+    <Property Name="SoHD" Type="int" Nullable="false" />
+    <Property Name="Ma_KhachHang" Type="int" />
+    <Property Name="NgayDatHang" Type="date" />
+    <Property Name="TriGia" Type="money" />
+    <Property Name="NgayGiaoHang" Type="date" />
+    <Property Name="DaGiao" Type="bit" />
+    <Property Name="TenNguoiNhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChiNhan" Type="nvarchar" MaxLength="100" />
+    <Property Name="HinhthucThanhToan" Type="bit" />
+    <Property Name="HinhthucGiaoHang" Type="bit" />
+  </EntityType>
+  <EntityType Name="Khach_Hang">
+    <Key>
+      <PropertyRef Name="Ma_KhachHang" />
+    </Key>
+    <Property Name="Ma_KhachHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenKH" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="50" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="10" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="Gioi_tinh" Type="bit" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="DienTHoai" Type="int" />
+    <Property Name="DiaChi" Type="nchar" MaxLength="100" />
+    <Property Name="DaDuyet" Type="bit" />
+  </EntityType>
+  <EntityType Name="NSX">
+    <Key>
+      <PropertyRef Name="Ma_NSX" />
+    </Key>
+    <Property Name="Ma_NSX" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenNSX" Type="nvarchar" MaxLength="100" />
+    <Property Name="Dia_Chi" Type="nvarchar" MaxLength="100" />
+    <Property Name="Dien_Thoai" Type="int" />
+  </EntityType>
+  <EntityType Name="NXB">
+    <Key>
+      <PropertyRef Name="Ma_NXB" />
+    </Key>
+    <Property Name="Ma_NXB" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Ten_NXB" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Dia_Chi" Type="nvarchar" MaxLength="100" />
+    <Property Name="DienThoai" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'data_MB.dbo.QuanTriVien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="QuanTriVien">
+    <Key>
+      <PropertyRef Name="Ma_QTV" />
+      <PropertyRef Name="HoNV" />
+      <PropertyRef Name="TenNV" />
+      <PropertyRef Name="GioiTinh" />
+      <PropertyRef Name="DiaChi" />
+    </Key>
+    <Property Name="Ma_QTV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="HoNV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenNV" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="GioiTinh" Type="bit" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenDangNhapNV" Type="nvarchar" MaxLength="50" />
+    <Property Name="MatKhauQTV" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Sach">
+    <Key>
+      <PropertyRef Name="Ma_Sach" />
+    </Key>
+    <Property Name="Ma_Sach" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Ten_Sach" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Tac_Gia" Type="nchar" MaxLength="100" Nullable="false" />
+    <Property Name="Gia" Type="money" Nullable="false" />
+    <Property Name="Don_Vi_tinh" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ma_NXB" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="NgayCapNhat" Type="date" />
+    <Property Name="MaCD" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="1000" />
+    <Property Name="SoLuongBan" Type="int" />
+    <Property Name="SoLanxem" Type="int" />
+    <Property Name="Anh" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="VanPhongPham">
+    <Key>
+      <PropertyRef Name="Ma_VPP" />
+    </Key>
+    <Property Name="Ma_VPP" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Ten_VPP" Type="nvarchar" MaxLength="60" />
+    <Property Name="Gia" Type="money" />
+    <Property Name="Don_Vi_Tinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="Ma_NSX" Type="nvarchar" MaxLength="10" />
+    <Property Name="NgayCapNhat" Type="date" />
+    <Property Name="Mota" Type="nvarchar" MaxLength="10" />
+    <Property Name="SoluongBan" Type="int" />
+    <Property Name="SoLanXem" Type="int" />
+    <Property Name="Anh" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_CTDATHANG_DATHANG">
+    <End Role="DATHANG" Type="Self.DATHANG" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATHANG">
+        <PropertyRef Name="SoHD" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="SoHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDATHANG_Sach">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="Ma_Sach" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="MaHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDATHANG_VanPhongPham">
+    <End Role="VanPhongPham" Type="Self.VanPhongPham" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VanPhongPham">
+        <PropertyRef Name="Ma_VPP" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="MaHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DATHANG_Khach_Hang">
+    <End Role="Khach_Hang" Type="Self.Khach_Hang" Multiplicity="0..1" />
+    <End Role="DATHANG" Type="Self.DATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Khach_Hang">
+        <PropertyRef Name="Ma_KhachHang" />
+      </Principal>
+      <Dependent Role="DATHANG">
+        <PropertyRef Name="Ma_KhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sach_ChuDe">
+    <End Role="ChuDe" Type="Self.ChuDe" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuDe">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaCD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sach_ChuDe1">
+    <End Role="ChuDe" Type="Self.ChuDe" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuDe">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaCD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sach_NXB1">
+    <End Role="NXB" Type="Self.NXB" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NXB">
+        <PropertyRef Name="Ma_NXB" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="Ma_NXB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VanPhongPham_NSX">
+    <End Role="NSX" Type="Self.NSX" Multiplicity="0..1" />
+    <End Role="VanPhongPham" Type="Self.VanPhongPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NSX">
+        <PropertyRef Name="Ma_NSX" />
+      </Principal>
+      <Dependent Role="VanPhongPham">
+        <PropertyRef Name="Ma_NSX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="data_MBModelStoreContainer">
+    <EntitySet Name="ChuDe" EntityType="Self.ChuDe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTDATHANG" EntityType="Self.CTDATHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DATHANG" EntityType="Self.DATHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Khach_Hang" EntityType="Self.Khach_Hang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NSX" EntityType="Self.NSX" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NXB" EntityType="Self.NXB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sach" EntityType="Self.Sach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VanPhongPham" EntityType="Self.VanPhongPham" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuanTriVien" EntityType="Self.QuanTriVien" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [QuanTriVien].[Ma_QTV] AS [Ma_QTV], 
+    [QuanTriVien].[HoNV] AS [HoNV], 
+    [QuanTriVien].[TenNV] AS [TenNV], 
+    [QuanTriVien].[GioiTinh] AS [GioiTinh], 
+    [QuanTriVien].[DiaChi] AS [DiaChi], 
+    [QuanTriVien].[TenDangNhapNV] AS [TenDangNhapNV], 
+    [QuanTriVien].[MatKhauQTV] AS [MatKhauQTV], 
+    [QuanTriVien].[NgaySinh] AS [NgaySinh], 
+    [QuanTriVien].[Email] AS [Email]
+    FROM [dbo].[QuanTriVien] AS [QuanTriVien]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CTDATHANG_DATHANG" Association="Self.FK_CTDATHANG_DATHANG">
+      <End Role="DATHANG" EntitySet="DATHANG" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDATHANG_Sach" Association="Self.FK_CTDATHANG_Sach">
+      <End Role="Sach" EntitySet="Sach" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDATHANG_VanPhongPham" Association="Self.FK_CTDATHANG_VanPhongPham">
+      <End Role="VanPhongPham" EntitySet="VanPhongPham" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DATHANG_Khach_Hang" Association="Self.FK_DATHANG_Khach_Hang">
+      <End Role="Khach_Hang" EntitySet="Khach_Hang" />
+      <End Role="DATHANG" EntitySet="DATHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sach_ChuDe" Association="Self.FK_Sach_ChuDe">
+      <End Role="ChuDe" EntitySet="ChuDe" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sach_ChuDe1" Association="Self.FK_Sach_ChuDe1">
+      <End Role="ChuDe" EntitySet="ChuDe" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sach_NXB1" Association="Self.FK_Sach_NXB1">
+      <End Role="NXB" EntitySet="NXB" />
+      <End Role="Sach" EntitySet="Sach" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VanPhongPham_NSX" Association="Self.FK_VanPhongPham_NSX">
+      <End Role="NSX" EntitySet="NSX" />
+      <End Role="VanPhongPham" EntitySet="VanPhongPham" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

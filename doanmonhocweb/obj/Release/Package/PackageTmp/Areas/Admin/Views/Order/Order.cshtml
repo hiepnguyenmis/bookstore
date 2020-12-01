@@ -1,0 +1,94 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model  PagedList<doanmonhocweb.Models.DATHANG>
+@{
+    ViewBag.Title = "Chi Tiết Đặt Hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdministrator.cshtml";
+
+}
+<title>Trang Quản Trị| @ViewBag.Title </title>
+<link href="~/Areas/Admin/Content/AdminStyle/Adminstylesheet.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<div class="contentAd">
+    <h2>ĐƠN HÀNG</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Đơn Hàng Số")
+            </th>
+            <th>
+                @Html.Label("Ngày Đặt")
+            </th>
+            <th>
+                @Html.Label("Tổng giá trị thanh toán")
+            </th>
+            <th>
+                @Html.Label("Ngày Giao")
+            </th>
+            <th>
+                @Html.Label("Xac Nhận:")
+            </th>
+            <th>
+                @Html.Label("Tên Người Nhận")
+            </th>
+            <th>
+                @Html.Label("Địa Chỉ")
+            </th>
+            <th>
+                @Html.Label("Điện Thoại")
+            </th>
+            <th>
+                @Html.Label("Hình Thức Thanh Toán")
+            </th>
+            <th>
+                @Html.Label("Hình Thức Giao Hàng")
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoHD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayDatHang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TriGia)
+                </td>
+                <td>
+                    <input type="date" name="NgayGiao" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DaGiao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNguoiNhan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChiNhan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoDienThoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HinhThucThanhToan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HinhThucGiaoHang)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Chi tiết đơn hàng", "Detail", new { @SoHD = item.SoHD }) |
+                    @Html.ActionLink("Xóa", "Delete", new { @SoHD = item.SoHD })
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="Pagelist">
+        @Html.PagedListPager(Model, page => Url.Action("Order", new { page = page }))
+    </div>
+</div>

@@ -1,0 +1,162 @@
+﻿@model doanmonhocweb.Models.Sach
+
+@{
+    ViewBag.Title = "Xác Nhận Xóa";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdministrator.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/AdminStyle/Adminstylesheet.css" rel="stylesheet" />
+<title>Trang Quản Trị| @ViewBag.Title </title>
+<div class="contentAd">
+    <div>
+        <h3>Bạn Thực Muốn Xóa Sản Phẩm</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Tên Sách: ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ten_Sach)
+            </dd>
+
+            <dt>
+                @Html.Label("Tác Giả: ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tac_Gia)
+            </dd>
+
+            <dt>
+                @Html.Label("Giá Bìa:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gia)
+            </dd>
+
+            <dt>
+                @Html.Label("Giá Cửa Hàng:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaCuaHang)
+            </dd>
+
+            <dt>
+                @Html.Label("Đơn Vị Tính:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Don_Vi_Tinh)
+            </dd>
+
+            <dt>
+                @Html.Label("Ngày Cập Nhật")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgayCapNhat)
+            </dd>
+
+            <dt>
+                @Html.Label("Mô Tả")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mota)
+            </dd>
+
+            <dt>
+                @Html.Label("Số Lượng Tồn")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuongTon)
+            </dd>
+
+            <dt>
+                @Html.Label("Số Lưỡng Bán")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuongBan)
+            </dd>
+
+            <dt>
+                @Html.Label("Lượt Xem:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLanXem)
+            </dd>
+
+            <dt>
+                @Html.Label("Hình Ảnh : ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhAnh)
+            </dd>
+
+            <dt>
+                @Html.Label("Ngôn Ngữ Sách: ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Loai)
+            </dd>
+
+            <dt>
+                @Html.Label("Loại Bìa")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LoaiBia)
+            </dd>
+
+            <dt>
+                @Html.Label("Số Trang: ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoTrang)
+            </dd>
+
+            <dt>
+                @Html.Label("Nhà Phân Phối: ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NhaPhanPhoi)
+            </dd>
+
+            <dt>
+                @Html.Label("Tên Chủ Đề: ")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChuDe.TenCD)
+            </dd>
+
+            <dt>
+                @Html.Label("Tên Nhà Xuất Bản:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NXB.TenNXB)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa Sách" class="btn btn-default" /> 
+            </div>
+        }
+    </div>
+</div>

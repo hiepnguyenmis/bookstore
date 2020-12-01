@@ -1,0 +1,96 @@
+﻿@model doanmonhocweb.Models.Khach_Hang
+
+@{
+    ViewBag.Title = "Xem Thông Tin Cá Nhân";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+<title>Cửa Hàng Sách Me&Book| @ViewBag.Title </title>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/style/Costomer/Costomer.css" rel="stylesheet" />
+<div class="featured">
+    <div class="tab"><h3><b>THÔNG TIN CÁ NHÂN</b></h3></div>
+    <div class="contentCostomer" style="font-size:20px;">
+        <div>
+            <br />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.Label("Họ:")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.HoKH)
+                </dd>
+
+                <dt>
+                    @Html.Label("Tên:")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TenKH)
+                </dd>
+
+                <dt>
+                    @Html.Label("Tên Đăng Nhập:")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TenDangNhap)
+                </dd>
+                <dt>
+                    @Html.Label("Ngày Sinh:")
+                </dt>
+
+                <dd>
+                   @String.Format("{0:dd/MM/yyyy }",Model.NgaySinh)
+                </dd>
+
+                <dt>
+                    @Html.Label("Giới Tính:")
+                </dt>
+
+                <dd>
+                    @{
+                        if (Model.Gioi_tinh == "1")
+                        {
+                            @Html.Label("Nam");
+                        }
+                        else if(Model.Gioi_tinh=="0")
+                        {
+                            @Html.Label("Nữ");
+                        }
+                    }
+                </dd>
+
+                <dt>
+                    @Html.Label("Email:")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.Label("Điện Thoai:")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DienThoai)
+                </dd>
+
+                <dt>
+                    @Html.Label("Địa Chỉ")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DiaChi)
+                </dd>
+                <dd>
+                    <a href="@Url.Action("Customer", new { Ma_Khach_Hang = Model.Ma_Khach_Hang }) "><input type="button" value="Chỉnh Sửa" class="btn btn-danger" /></a>
+
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+

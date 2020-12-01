@@ -1,0 +1,100 @@
+﻿@model doanmonhocweb.Models.Khach_Hang
+@{
+    ViewBag.Title = "Thông Tin Khách Hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdministrator.cshtml"; 
+}
+<link href="~/Areas/Admin/Content/AdminStyle/Adminstylesheet.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<title>Trang Quản Trị| @ViewBag.Title </title>
+<div class="contentAd">
+    <h2>Thông Tin Chi Tiết Khách Hàng</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Mã Khách Hàng:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HoKH)
+            </dd>
+
+            <dt>
+                @Html.Label("Tên Khách Hàng:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenKH)
+            </dd>
+
+            <dt>
+                @Html.Label("Tên Đăng Nhập:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenDangNhap)
+            </dd>
+
+            <dt>
+                @Html.Label("Mật Khẩu:")
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.MatKhau)*@
+            </dd>
+
+            <dt>
+                @Html.Label("Ngày Sinh:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgaySinh)
+            </dd>
+
+            <dt>
+                @Html.Label("Giới :")
+            </dt>
+
+            <dd>
+               @* @Html.DisplayFor(model => model.GioiTinh)*@
+            </dd>
+
+            <dt>
+                @Html.Label("Email:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.Label("Điện Thoại:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DienThoai)
+            </dd>
+
+            <dt>
+                @Html.Label("Địa chỉ:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
+
+            <dt>
+                @Html.Label("Trạng Thái:")
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.DaDuyet)*@
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+       
+        << @Html.ActionLink("Trở Về Danh Sách", "KhachHang")
+    </p>
+</div>

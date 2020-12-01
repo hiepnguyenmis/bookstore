@@ -1,0 +1,74 @@
+﻿.contentAd {
+    background-color: white;
+    width: 98%;
+    height: auto;
+    margin: 2px auto;
+    position: relative;
+    padding: 5px 5px;
+    color: #3e3c3c;
+}
+.content-mid{
+    height: auto;
+}
+#nav-brand {
+    background-color: #0084FF;
+}
+#wapper_Admin {
+    position: inherit;
+    margin: 0 0 0 190px;
+}
+
+.nav_admin > li > a {
+    position: relative;
+    display: block;
+    padding: 0 3px;
+}
+.sidebar {
+    z-index: 1;
+    position: absolute;
+    width: 186px;
+}
+.dropdown{
+    display:none;
+}
+.dropdown-menu {
+    
+    width: 100px;
+    height: 100px;
+}
+.nav_1>li:hover .dropdown-menu{
+    display:block;
+}
+.Pagelist>li{
+    display:inline;
+}
+.sizemotasach{
+    height:300px;
+   padding-bottom:30%;
+   padding-top:20px;
+}
+/***************************************************************************/
+.main-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-left: 206px;
+    padding-top: 79px;
+    font-size: 14px;
+    
+    
+}
+.table td, .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    padding: 6px !important;
+    font-size: 0.85em;
+    color: #999;
+    border-left: 1px solid #ddd;
+}
+.main-menu{
+    width:214px;
+}
+.fixed-navbar {
+    left: 212px;
+}
+.controlAd {
+    width: 146px;
+}

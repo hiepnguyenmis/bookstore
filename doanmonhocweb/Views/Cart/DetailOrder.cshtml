@@ -1,0 +1,53 @@
+﻿@model doanmonhocweb.Models.Chitetdathang
+
+
+@{
+    ViewBag.Title = "Thông Tin Đặt Hàng";
+    Layout = "~/Views/Shared/_LayoutContent.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/style/content.css" rel="stylesheet" />
+<title>Cửa Hàng Sách Me&Book| @ViewBag.Title </title>
+<div class="featured Cart">
+    @using (Html.BeginForm("Order", "Cart", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thông Tin Đặt Hàng</h4>
+        <hr />
+        <div class="form-group">
+            @Html.Label("Địa chỉ nhận hàng:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiaChiNhan, new { htmlAttributes = new { @class = "form-control", @name="DiachiNhan"} })
+                @Html.ValidationMessageFor(model => model.DiaChiNhan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Điện thoại:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { @class = "form-control",@name="Sodienthoai" } })
+                @Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Hình thức thanh toán:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="Hinhthucthanhtoan"class = "form-control">
+                    <option value="Tiền Mặt">Thanh toán khi nhận hàng</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đặt Hàng" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+</div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

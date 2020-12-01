@@ -1,0 +1,822 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{19074411-41C5-4C8F-9CFA-03A0E8008461}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>doanmonhocweb</RootNamespace>
+    <AssemblyName>doanmonhocweb</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Content\AdminStyle\Adminstylesheet.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\fontello\fontello.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\fontello\fontello.svg" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design-iconic-font\css\material-design-iconic-font.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design-iconic-font\css\material-design-iconic-font.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\css\materialdesignicons.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\css\materialdesignicons.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\themify-icons\fonts\themify.svg" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\themify-icons\themify-icons.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\js\npm.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartist\chartist.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartist\chartist.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartist\chartist.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartist\chartist.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartjs\Chart.bundle.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartjs\Chart.bundle.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartjs\Chart.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartjs\Chart.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\accessibility.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\accessibility.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\annotations.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\annotations.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\boost.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\boost.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\broken-axis.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\broken-axis.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\data.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\data.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\drilldown.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\drilldown.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\exporting.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\exporting.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\funnel.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\funnel.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\gantt.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\gantt.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\grid-axis.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\grid-axis.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\heatmap.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\heatmap.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\no-data-to-display.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\no-data-to-display.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\offline-exporting.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\offline-exporting.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\overlapping-datalabels.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\overlapping-datalabels.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\series-label.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\series-label.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\solid-gauge.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\solid-gauge.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\treemap.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\treemap.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\xrange-series.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\code\js\modules\xrange-series.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\css\highcharts.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\highcharts-3d.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\highcharts-3d.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\highcharts-more.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\highcharts-more.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\highcharts.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\highcharts.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\highcharts-3d.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\highcharts-3d.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\highcharts-more.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\highcharts-more.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\highcharts.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\highcharts.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\accessibility.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\accessibility.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\annotations.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\annotations.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\boost.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\boost.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\broken-axis.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\broken-axis.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\data.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\data.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\drilldown.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\drilldown.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\exporting.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\exporting.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\funnel.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\funnel.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\gantt.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\gantt.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\grid-axis.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\grid-axis.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\heatmap.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\heatmap.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\no-data-to-display.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\no-data-to-display.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\offline-exporting.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\offline-exporting.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\overlapping-datalabels.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\overlapping-datalabels.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\series-label.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\series-label.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\solid-gauge.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\solid-gauge.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\treemap.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\treemap.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\xrange-series.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\modules\xrange-series.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\themes\dark-blue.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\themes\dark-green.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\themes\dark-unica.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\themes\gray.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\themes\grid-light.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\themes\grid.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\themes\sand-signika.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\js\themes\skies.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\lib\canvg.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\lib\canvg.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\lib\jspdf.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\lib\jspdf.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\lib\rgbcolor.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\lib\rgbcolor.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\lib\svg2pdf.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\lib\svg2pdf.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\accessibility.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\accessibility.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\annotations.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\annotations.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\boost.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\boost.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\broken-axis.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\broken-axis.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\data.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\data.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\drilldown.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\drilldown.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\exporting.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\exporting.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\funnel.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\funnel.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\gantt.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\gantt.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\grid-axis.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\grid-axis.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\heatmap.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\heatmap.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\no-data-to-display.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\offline-exporting.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\offline-exporting.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\overlapping-datalabels.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\overlapping-datalabels.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\series-label.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\series-label.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\solid-gauge.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\solid-gauge.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\treemap.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\treemap.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\xrange-series.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\modules\xrange-series.src.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\readme.txt" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\themes\dark-blue.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\themes\dark-green.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\themes\dark-unica.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\themes\gray.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\themes\grid-light.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\themes\grid.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\themes\sand-signika.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\highcharts\themes\skies.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\morris\morris.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\morris\morris.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\morris\morris.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\morris\raphael-min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\excanvas.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\excanvas.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.colorhelpers.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.colorhelpers.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.canvas.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.canvas.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.categories.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.categories.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.crosshair.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.crosshair.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.errorbars.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.errorbars.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.fillbetween.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.fillbetween.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.image.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.image.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.navigate.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.navigate.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.pie.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.pie.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.resize.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.resize.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.selection.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.selection.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.stack.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.stack.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.symbol.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.symbol.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.threshold.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.threshold.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.time.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.time.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\plot\jquery.flot.tooltip.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\sparkline\jquery.sparkline.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\images\ui-icons_444444_256x240.png" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\images\ui-icons_555555_256x240.png" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\images\ui-icons_777620_256x240.png" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\images\ui-icons_777777_256x240.png" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\jquery-ui.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\jquery-ui.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\jquery-ui.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\jquery-ui.structure.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\jquery-ui.structure.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\jquery-ui.theme.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\jquery-ui.theme.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-ui\jquery.ui.touch-punch.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\jquery-validation\jquery.validate.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\maxlength\bootstrap-maxlength.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\maxlength\bootstrap-maxlength.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\mCustomScrollbar\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\mCustomScrollbar\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\mCustomScrollbar\jquery.mCustomScrollbar.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\mCustomScrollbar\mCSB_buttons.png" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\moment\moment.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\nprogress\nprogress.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\nprogress\nprogress.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\sweet-alert\sweetalert-dev.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\sweet-alert\sweetalert.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\sweet-alert\sweetalert.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\waves\waves.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\waves\waves.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\waves\waves.min.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\waves\waves.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\chart.flot.init.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\chart.flot.init.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\chart.morris.init.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\chart.morris.init.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\chart.sparkline.init.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\chart.sparkline.init.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\jquery.knob.init.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\jquery.knob.init.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\jquery.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\jquery.scrollTo.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\main.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\main.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\scripts\modernizr.min.js" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\styles\style.css" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\styles\style.min.css" />
+    <Content Include="Areas\Admin\Content\JSAdmin\js\main.js" />
+    <Content Include="bin\doanmonhocweb.dll" />
+    <Content Include="bin\doanmonhocweb.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\PagedList.dll" />
+    <Content Include="bin\PagedList.Mvc.dll" />
+    <Content Include="bin\PagedList.Mvc.xml" />
+    <Content Include="bin\PagedList.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.Deployment.dll" />
+    <Content Include="bin\System.Web.Webpages.Deployment.xml" />
+    <Content Include="bin\System.Web.Webpages.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.dll" />
+    <Content Include="bin\System.Web.Webpages.Razor.xml" />
+    <Content Include="bin\System.Web.Webpages.xml" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font\font.css" />
+    <Content Include="Content\image-header\banner1.ico" />
+    <Content Include="Content\image-header\header2.jpg" />
+    <Content Include="Content\image-index\slide\baner23.jpg" />
+    <Content Include="Content\image-index\slide\banner55.jpg" />
+    <Content Include="Content\image-index\slide\banner99.jpg" />
+    <Content Include="Content\image-index\slide\giam-50-thang-10.jpg" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\style\Costomer\Costomer.css" />
+    <Content Include="Content\style\memenu_single.css" />
+    <Content Include="Content\style\Products_Single.css" />
+    <Content Include="Content\image-footer\google-plus.svg" />
+    <Content Include="Content\image-footer\visa.svg" />
+    <Content Include="Content\image-footer\facebook.svg" />
+    <Content Include="Content\image-header\cart.svg" />
+    <Content Include="Content\image-footer\instagram.svg" />
+    <Content Include="Content\image-header\img-iconsearch.svg" />
+    <Content Include="Content\image-header\logomebook.png" />
+    <Content Include="Content\image-index\NgoaiVanSlide\back.png" />
+    <Content Include="Content\image-index\NgoaiVanSlide\banner_web_business_1170x260.jpg" />
+    <Content Include="Content\image-index\NgoaiVanSlide\banner_web_combo-eat-right-the-plant_1170x260.jpg" />
+    <Content Include="Content\image-index\NgoaiVanSlide\next.png" />
+    <Content Include="Content\image-footer\twitter.svg" />
+    <Content Include="Content\image-index\thanhmau.png" />
+    <Content Include="Content\image-index\thanhmau2.png" />
+    <Content Include="Content\image-index\Vpp\gift.jpg" />
+    <Content Include="Content\image-index\Vpp\colored-pencils-656178.jpg" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\style\content.css" />
+    <Content Include="Content\style\footer.css" />
+    <Content Include="Content\style\index.css" />
+    <Content Include="Content\style\reponsive.css" />
+    <Content Include="Content\style\header.css" />
+    <Content Include="Content\style\signup\css\font-awesome.css" />
+    <Content Include="Content\style\signup\css\style.css" />
+    <Content Include="Content\style\signup\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\style\signup\images\bg.jpg" />
+    <Content Include="Content\_LayoutPage_SingleProducts\_LayoutpageProducts.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\dataMeBookModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dataMeBookModel.edmx</DependentUpon>
+      <LastGenOutput>dataMeBookModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\dataMeBookModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dataMeBookModel.edmx</DependentUpon>
+      <LastGenOutput>dataMeBookModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\font\BalooTammudu-Regular.ttf" />
+    <Content Include="Content\font\Coiny-Regular.ttf" />
+    <Content Include="Content\font\Pacifico-Regular.ttf" />
+    <Content Include="Content\font\VarelaRound-Regular.ttf" />
+    <Content Include="Content\font\YanoneKaffeesatz-Bold.ttf" />
+    <Content Include="Content\font\YanoneKaffeesatz-ExtraLight.ttf" />
+    <Content Include="Content\font\YanoneKaffeesatz-Light.ttf" />
+    <Content Include="Content\font\YanoneKaffeesatz-Regular.ttf" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\KhachHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Customer\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Book.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\AddBook.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdministrator.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Order.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Delete.cshtml" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\animated.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\core.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\fixed-width.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\icons.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\larger.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\list.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\mixins.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\path.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\screen-reader.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\stacked.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\less\variables.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_animated.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_core.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_larger.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_list.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_path.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_stacked.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\fontello\fontello.eot" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\fontello\fontello.ttf" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\fontello\fontello.woff" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\fontello\fontello.woff2" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\css\materialdesignicons.css.map" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\css\materialdesignicons.min.css.map" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\scss\materialdesignicons.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\scss\_core.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\scss\_extras.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\scss\_functions.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\scss\_icons.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\scss\_path.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\material-design\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\themify-icons\fonts\themify.eot" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\themify-icons\fonts\themify.ttf" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\fonts\themify-icons\fonts\themify.woff" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\less\general.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\less\header.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\less\main.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\less\style.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\less\variables.less" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartist\chartist.css.map" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartist\chartist.min.js.map" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartist\scss\chartist.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\chart\chartist\scss\settings\_chartist-settings.scss" />
+    <Content Include="Areas\Admin\Content\AdminStyle\assets\plugin\waves\waves.min.js.map" />
+    <None Include="bin\doanmonhocweb.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="Content\style\signup\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\style\signup\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\style\signup\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\style\signup\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\style\signup\fonts\FontAwesome.otf" />
+    <Content Include="Content\font\Bungee-Regular.ttf" />
+    <Content Include="Content\font\PlayfairDisplay-BoldItalic.ttf" />
+    <Content Include="Content\font\Lobster-Regular.ttf" />
+    <Content Include="Content\font\Anton-Regular.ttf" />
+    <Content Include="Content\font\BreeSerif-Regular.ttf" />
+    <Content Include="Content\font\Lato-Regular.ttf" />
+    <Content Include="Content\font\Lora-Regular.ttf" />
+    <Content Include="Content\font\Muli-Regular.ttf" />
+    <Content Include="Content\font\Philosopher-Regular.ttf" />
+    <Content Include="Content\font\Charmonman-Bold.ttf" />
+    <EntityDeploy Include="Models\dataMeBookModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dataMeBookModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\dataMeBookModel.edmx.diagram">
+      <DependentUpon>dataMeBookModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile3.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile4.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\javascript\cscoll.js" />
+    <Content Include="Scripts\javascript\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\javascript\jssignup\testpassword.js" />
+    <Content Include="Scripts\javascript\JSslide\NgoaiVanSlide.js" />
+    <Content Include="Scripts\javascript\JSslide\slide.js" />
+    <Content Include="Scripts\javascript\menutab.js" />
+    <Content Include="Scripts\javascript\menutab_ENG.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JsAddclass\Addclass.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Simple\imagezoom.js" />
+    <Content Include="Scripts\Simple\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\Simple\jquery.easydropdown.js" />
+    <Content Include="Scripts\Simple\jquery.flexslider.js" />
+    <Content Include="Scripts\Simple\simpleCart.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminClass.cs" />
+    <Compile Include="Areas\Admin\Models\AdminLogin.cs" />
+    <Compile Include="Areas\Admin\Models\info_Book.cs" />
+    <Compile Include="Areas\Admin\Models\QuangCaoClass.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Chitetdathang.cs" />
+    <Compile Include="Models\ChuDe.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CTDATHANG.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dataMeBookModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataMeBookModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dataMeBookModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dataMeBookModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataMeBookModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DATHANG.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Encryptor .cs" />
+    <Compile Include="Models\Export.cs" />
+    <Compile Include="Models\info_costomer.cs" />
+    <Compile Include="Models\Khach_Hang.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NSX.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NXB.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuangCao.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanTriVien.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sach.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\signin.cs" />
+    <Compile Include="Models\signup.cs" />
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VanPhongPham.cs">
+      <DependentUpon>dataMeBookModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Websach.dao\UserDAO.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\User\signup.cshtml" />
+    <Content Include="Views\User\signin.cshtml" />
+    <Content Include="Views\Products\Single_products.cshtml" />
+    <Content Include="Views\Shared\_LayoutContent.cshtml" />
+    <Content Include="Views\Category\tatcasach.cshtml" />
+    <Content Include="Views\Category\Sach_Thieu_Nhi.cshtml" />
+    <Content Include="Views\Category\Sach_Moi_Phat_Hanh.cshtml" />
+    <Content Include="Views\Category\Sach_Van_Hoc.cshtml" />
+    <Content Include="Views\Category\Sach_Kinh_Te.cshtml" />
+    <Content Include="Views\Category\Sach_Ky_Nang_Song.cshtml" />
+    <Content Include="Views\Category\Truyen_Tranh.cshtml" />
+    <Content Include="Views\Category\Tat_Ca_Ngoai_Van.cshtml" />
+    <Content Include="Views\Category\Sach_Ngoai_Van_Van_Hoc.cshtml" />
+    <Content Include="Views\Category\Sach_Ngoai_Van_Thieu_Nhi.cshtml" />
+    <Content Include="Views\Category\Sach_Ngoai_Van_Kinh_Doanh.cshtml" />
+    <Content Include="Views\Category\Sach_Ngoai_Van_Giao_Duc.cshtml" />
+    <Content Include="Views\Category\Tu_Dien.cshtml" />
+    <Content Include="Views\Category\Sach_Giao_Khoa.cshtml" />
+    <Content Include="Views\Cart\GioHang.cshtml" />
+    <Content Include="Views\Cart\PartialCart.cshtml" />
+    <Content Include="Views\Cart\EditCart.cshtml" />
+    <Content Include="Views\Search\KetQua.cshtml" />
+    <Content Include="Views\Cart\DetailOrder.cshtml" />
+    <Content Include="Views\Customer\Customer.cshtml" />
+    <Content Include="Views\Customer\InfomationCustomer.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\Class\" />
+    <Folder Include="Content\ImgBook\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57749</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57749/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

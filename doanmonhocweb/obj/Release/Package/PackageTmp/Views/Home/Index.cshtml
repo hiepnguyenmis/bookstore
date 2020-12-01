@@ -1,0 +1,460 @@
+﻿@using doanmonhocweb.Models
+@model Sach
+@{
+    dataMeBookEntities dbo = new dataMeBookEntities();
+}
+
+<title>Cửa Hàng Sách Trực Tuyến Me&Book </title>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="~/Content/font/font.css" rel="stylesheet" />
+    <link href="~/Content/style/index.css" rel="stylesheet" />
+    <link href="~/Content/style/footer.css" rel="stylesheet" />
+    <script src="~/Scripts/javascript/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/javascript/JSslide/slide.js"></script>
+    <link href="~/Content/style/aos.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <content>
+        <div class="slideshow">
+            <div class="slideitem">
+                <img src="~/Content/image-index/slide/banner99.jpg" />
+                <div class="slider">
+                    <h1>@*code*@ </h1>
+                    <a href="#"><input type="button" name="btn_muangay" class="btn btn-danger btn_muangay QC" value="Chi Tiết"></a>
+                </div>
+            </div>
+
+            <div class="slideitem">
+                <img src="~/Content/image-index/slide/baner23.jpg" />
+                <div class="slider">
+                    <h1>@*code*@ </h1>
+                    <a href="#"><input type="button" name="btn_muangay" class="btn btn-danger btn_muangay QC" value="Chi Tiết"></a>
+                </div>
+            </div>
+            <div class="slideitem">
+                <img src="~/Content/image-index/slide/giam-50-thang-10.jpg" />
+                <div class="slider">
+                    <h1>@*code*@ </h1>
+                    <a href="#"><input type="button" name="btn_muangay" class="btn btn-danger btn_muangay QC" value="Chi Tiết"></a>
+                </div>
+            </div>
+
+            <div class="slideitem">
+                <img src="~/Content/image-index/slide/banner55.jpg" />
+                <div class="slider">
+                    <h1>@*code*@</h1>
+                    <a href="#"><input type="button" name="btn_muangay" class=" btn btn-danger btn_muangay QC " value="Chi Tiết"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="featured">
+            <div class="img-ani-fea1">
+                <img src="~/Content/image-index/thanhmau.png" />
+            </div>
+            <div class="img-ani-fea2">
+                <img src="~/Content/image-index/thanhmau2.png" />
+            </div>
+            <div class="tab"><h3><b>NỔI BẬT HÔM NAY</b></h3></div>
+            @{
+
+                var Homnay = (from a in dbo.Saches orderby a.NgayCapNhat descending select a).Take(1).ToList();
+
+                    foreach (var item in Homnay)
+                    {
+                        <div id="topbook">
+                            <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })" id="link_topbook">
+                                <img src="@Url.Content("~/Content/ImgBook/" + item.HinhAnh)" />
+                            </a>
+                        </div>
+                        <div id="second">
+                            <div class="title_book">
+                                <div class="book_name">
+                                    <p>@item.Ten_Sach</p>
+                                </div>
+                                <div class="author">
+                                    <p>@item.Tac_Gia</p>
+                                </div>
+                                <div class="NXB">
+                                    <p>@item.NXB.TenNXB</p>
+                                </div>
+                                <div class="price">Giá:@item.GiaCuaHang</div>
+                                <div class="info_topbook">
+                                    @using (Html.BeginForm("AddCart", "Cart", new { @MaSach = item.Ma_Sach, @Re_Url = Request.Url.ToString() }))
+                                    {
+                                        <a href="#"><input type="submit" name="btn_muasach" class="btn_muangay btn_muasach" value="Thêm vào giỏ hàng"></a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+        </div>
+        <div class=" featured children_Book" id="">
+            <div class="tab"><h3><b>SÁCH VIỆT</b></h3></div>
+            <nav class="chosebook">
+                <ul class="choose">
+                    <li class="col1 acti"><a href="#tab1">Nổi Bật</a></li>
+                    <li class="col1"><a href="#tab2">Mới</a></li>
+                    <li class="col1"><a href="#tab3">Bán Chạy</a></li>
+                    <li class="col1"><a href="#tab4">Đăc Biệt</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+            <div class="tab_listbook">
+                <script src="~/Scripts/javascript/menutab.js"></script>
+                <!--NỔI BẬT-->
+                <div class="list-book" id="tab1">
+                    @{
+
+
+                        var NoiBat = (from a in dbo.Saches where a.Loai == "Việt Nam" select a).Take(4).ToList();
+
+                        foreach (var item in NoiBat)
+                        {
+
+                            <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })">
+                                <div class="childbook">
+
+                                    <div class="book">
+                                        <div class="img">
+
+
+                                            <img src="@Url.Content("~/Content/ImgBook/"+ item.HinhAnh)" />
+
+                                        </div>
+                                    </div>
+                                    <div class="btn_book">
+                                        <div class="titlebook"><p>@item.Ten_Sach</p></div>
+                                        <div class="author_book"><p>@item.Tac_Gia</p></div>
+                                        <div class="pricebook">@String.Format("{0:0,0 }", item.GiaCuaHang).Replace(",", ".") VNĐ</div>
+                                        <div class="discount"><del>@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</del></div>
+                                    </div>
+
+                                </div>
+                            </a>
+                        }
+                    }
+                </div>
+                <div class="clear"></div>
+                <!--MỚI-->
+                <div class="list-book" id="tab2">
+                    @{
+
+
+                        var Moi = (from a in dbo.Saches orderby a.NgayCapNhat descending select a).Take(4).ToList();
+
+                        foreach (var item in Moi)
+                        {
+
+                            <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })">
+                                <div class="childbook">
+
+                                    <div class="book">
+                                        <div class="img">
+
+
+                                            <img src="@Url.Content("~/Content/ImgBook/"+ item.HinhAnh)" />
+
+                                        </div>
+                                    </div>
+                                    <div class="btn_book">
+                                        <div class="titlebook"><p>@item.Ten_Sach</p></div>
+                                        <div class="author_book"><p>@item.Tac_Gia</p></div>
+                                        <div class="pricebook">@String.Format("{0:0,0 }", item.GiaCuaHang).Replace(",", ".") VNĐ</div>
+                                        <div class="discount"><del>@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</del></div>
+
+                                    </div>
+
+                                </div>
+                            </a>
+
+                        }
+
+                    }
+                </div>
+                <div class="clear"></div>
+                <!--BÁN CHẠY-->
+                <div class="list-book" id="tab3">
+                    @{
+
+
+                        var BanChay = (from a in dbo.Saches orderby a.NgayCapNhat descending select a).Take(4).ToList();
+
+                        foreach (var item in BanChay)
+                        {
+
+                            <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })">
+                                <div class="childbook">
+
+                                    <div class="book">
+                                        <div class="img">
+
+
+                                            <img src="@Url.Content("~/Content/ImgBook/"+ item.HinhAnh)" />
+
+                                        </div>
+                                    </div>
+                                    <div class="btn_book">
+                                        <div class="titlebook"><p>@item.Ten_Sach</p></div>
+                                        <div class="author_book"><p>@item.Tac_Gia</p></div>
+                                        <div class="pricebook">@String.Format("{0:0,0 }", item.GiaCuaHang).Replace(",", ".") VNĐ</div>
+                                        <div class="discount"><del>@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</del></div>
+
+                                    </div>
+
+                                </div>
+                            </a>
+
+                        }
+
+                    }
+
+                    <div class="clear"></div>
+                </div>
+                <!--ĐẶC BIỆT-->
+                <div class="list-book" id="tab4">
+                    @{
+
+
+                        var DatBiet = (from a in dbo.Saches orderby a.NgayCapNhat descending select a).Take(4).ToList();
+
+                        foreach (var item in DatBiet)
+                        {
+
+                            <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })">
+                                <div class="childbook">
+
+                                    <div class="book">
+                                        <div class="img">
+
+
+                                            <img src="@Url.Content("~/Content/ImgBook/"+ item.HinhAnh)" />
+
+                                        </div>
+                                    </div>
+                                    <div class="btn_book">
+                                        <div class="titlebook"><p>@item.Ten_Sach</p></div>
+                                        <div class="author_book"><p>@item.Tac_Gia</p></div>
+                                        <div class="pricebook">@String.Format("{0:0,0 }", item.GiaCuaHang).Replace(",", ".") VNĐ</div>
+                                        <div class="discount"><del>@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</del></div>
+
+                                    </div>
+
+                                </div>
+                            </a>
+
+                        }
+
+                    }
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <script src="~/Scripts/javascript/aos.js"></script>
+        </div>
+
+        <div class="clear"></div>
+        @* Ngoại Văn *@
+        <script src="~/Scripts/javascript/JSslide/NgoaiVanSlide.js"></script>
+
+        <div class="featured ENGbook">
+            <div class="tab"><h3><b>SÁCH NGOẠI VĂN</b></h3></div>
+            <nav class="chosebookENG">
+                <ul class="chooseENG">
+                    <li class="column1 active"><a href="#tabENG1">Nổi Bật</a></li>
+                    <li class="column1"><a href="#tabENG2">Mới</a></li>
+                    <li class="column1"><a href="#tabENG3">Bán Chạy</a></li>
+                    <li class="column1"><a href="#tabENG4">Đăc Biệt</a></li>
+                </ul>
+            </nav>
+            <div class="clear"></div>
+            <div>
+                <div id="slider">
+                    <a class="control_next">
+                        <img src="~/Content/image-index/NgoaiVanSlide/next.png" />
+                    </a>
+                    <a class="control_prev">
+                        <img src="~/Content/image-index/NgoaiVanSlide/back.png" />
+                    </a>
+                    <ul>
+                        <li>
+                            <div class="img_banner1">
+                                <img src="~/Content/image-index/NgoaiVanSlide/banner_web_business_1170x260.jpg" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img_banner1">
+                                <img src="~/Content/image-index/NgoaiVanSlide/banner_web_combo-eat-right-the-plant_1170x260.jpg" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tablistbookENG">
+                    <script src="~/Scripts/javascript/menutab_ENG.js"></script>
+                    <div class="listbookENG" id="tabENG1">
+                        @{
+                            dataMeBookEntities db = new dataMeBookEntities();
+                            var NgoaiVanNoiBat = (from a in db.Saches where a.Loai == "Nước Ngoài" select a).Take(4).ToList();
+
+                            foreach (var item in NgoaiVanNoiBat)
+                            {
+
+                                <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })">
+                                    <div class="childbook">
+                                        <div class="book">
+                                            <div class="img">
+
+
+                                                <img src="@Url.Content("~/Content/ImgBook/"+ item.HinhAnh)" />
+
+                                            </div>
+                                        </div>
+                                        <div class="btn_book">
+                                            <div class="titlebook"><p>@item.Ten_Sach</p></div>
+                                            <div class="author_book"><p>@item.Tac_Gia</p></div>
+                                            <div class="pricebook">@String.Format("{0:0,0 }", item.GiaCuaHang).Replace(",", ".") VNĐ</div>
+                                            <div class="discount"><del>@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</del></div>
+
+                                        </div>
+                                    </div>
+                                </a>
+
+                            }
+
+                        }
+                        <div class="clear"></div>
+                    </div>
+                    <!--Moi-->
+                    <div class="listbookENG" id="tabENG2">
+                        @{
+
+                            var NgoaiVanMoi = (from a in dbo.Saches where a.Loai == "Nước Ngoài" orderby a.NgayCapNhat descending select a).Take(4).ToList();
+
+                            foreach (var item in NgoaiVanMoi)
+                            {
+
+                                <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })">
+                                    <div class="childbook">
+                                        <div class="book">
+                                            <div class="img">
+
+
+                                                <img src="@Url.Content("~/Content/ImgBook/"+ item.HinhAnh)" />
+
+                                            </div>
+                                        </div>
+                                        <div class="btn_book">
+                                            <div class="titlebook"><p>@item.Ten_Sach</p></div>
+                                            <div class="author_book"><p>@item.Tac_Gia</p></div>
+                                            <div class="pricebook">@String.Format("{0:0,0 }", item.GiaCuaHang).Replace(",", ".") VNĐ</div>
+                                            <div class="discount"><del>@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</del></div>
+
+                                        </div>
+                                    </div>
+                                </a>
+
+                            }
+
+                        }
+                        <div class="clear"></div>
+                    </div>
+                    <!--Ban Chay-->
+                    <div class="listbookENG" id="tabENG3">
+                        @{
+
+                            var NgoaiVanBanChay = (from a in dbo.Saches where a.Loai == "Nước Ngoài" orderby a.NgayCapNhat descending select a).Take(4).ToList();
+
+                            foreach (var item in NgoaiVanBanChay)
+                            {
+
+                                <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })">
+                                    <div class="childbook">
+                                        <div class="book">
+                                            <div class="img">
+
+
+                                                <img src="@Url.Content("~/Content/ImgBook/"+ item.HinhAnh)" />
+
+                                            </div>
+                                        </div>
+                                        <div class="btn_book">
+                                            <div class="titlebook"><p>@item.Ten_Sach</p></div>
+                                            <div class="author_book"><p>@item.Tac_Gia</p></div>
+                                            <div class="pricebook">@String.Format("{0:0,0 }", item.GiaCuaHang).Replace(",", ".") VNĐ</div>
+                                            <div class="discount"><del>@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</del></div>
+
+                                        </div>
+                                    </div>
+                                </a>
+
+                            }
+
+                        }
+                        <div class="clear"></div>
+                    </div>
+                    <!--Dac Biet-->
+                    <div class="listbookENG" id="tabENG4">
+                        @{
+
+                            var NgoaiVanDacBiet = (from a in dbo.Saches where a.Loai == "Nước Ngoài" orderby a.NgayCapNhat descending select a).Take(4).ToList();
+
+                            foreach (var item in NgoaiVanDacBiet)
+                            {
+
+                                <a href="@Url.Action("Single_products","Products",new {@Ma_Sach=item.Ma_Sach })">
+                                    <div class="childbook">
+                                        <div class="book">
+                                            <div class="img">
+
+
+                                                <img src="@Url.Content("~/Content/ImgBook/"+ item.HinhAnh)" />
+
+                                            </div>
+                                        </div>
+                                        <div class="btn_book">
+                                            <div class="titlebook"><p>@item.Ten_Sach</p></div>
+                                            <div class="author_book"><p>@item.Tac_Gia</p></div>
+                                            <div class="pricebook">@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</div>
+                                            <div class="discount"><del>@String.Format("{0:0,0 }", item.Gia).Replace(",", ".") VNĐ</del></div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            }
+
+                        }
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="featured VPP">
+            <a>
+                <div class="stationery">
+                    <div class="img_stat_">
+                        <img src="~/Content/image-index/Vpp/colored-pencils-656178.jpg" />
+                    </div>
+                    <div class="stationery_infor">
+                        <p>Dụng Cụ Học Tập</p>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="gift">
+                    <div class="gift_infor">
+                        <p>Quà Lưu Niệm</p>
+                    </div>
+                    <div class="img_gift_">
+                        <img src="~/Content/image-index/Vpp/gift.jpg" />
+                    </div>
+                </div>
+            </a>
+        </div>
+    </content>
+</body>
+</html>

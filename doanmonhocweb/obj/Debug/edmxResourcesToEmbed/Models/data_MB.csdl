@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="data_MBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChuDe">
+    <Key>
+      <PropertyRef Name="MaCD" />
+    </Key>
+    <Property Name="MaCD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenCD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Saches" Relationship="Self.FK_Sach_ChuDe" FromRole="ChuDe" ToRole="Sach" />
+    <NavigationProperty Name="Saches1" Relationship="Self.FK_Sach_ChuDe1" FromRole="ChuDe" ToRole="Sach" />
+  </EntityType>
+  <EntityType Name="CTDATHANG">
+    <Key>
+      <PropertyRef Name="SoHD" />
+      <PropertyRef Name="MaHangHoa" />
+    </Key>
+    <Property Name="SoHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHangHoa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoLuong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DonGia" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="ThanhTien" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="DATHANG" Relationship="Self.FK_CTDATHANG_DATHANG" FromRole="CTDATHANG" ToRole="DATHANG" />
+    <NavigationProperty Name="Sach" Relationship="Self.FK_CTDATHANG_Sach" FromRole="CTDATHANG" ToRole="Sach" />
+    <NavigationProperty Name="VanPhongPham" Relationship="Self.FK_CTDATHANG_VanPhongPham" FromRole="CTDATHANG" ToRole="VanPhongPham" />
+  </EntityType>
+  <EntityType Name="DATHANG">
+    <Key>
+      <PropertyRef Name="SoHD" />
+    </Key>
+    <Property Name="SoHD" Type="Int32" Nullable="false" />
+    <Property Name="Ma_KhachHang" Type="Int32" />
+    <Property Name="NgayDatHang" Type="DateTime" Precision="0" />
+    <Property Name="TriGia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NgayGiaoHang" Type="DateTime" Precision="0" />
+    <Property Name="DaGiao" Type="Boolean" />
+    <Property Name="TenNguoiNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiNhan" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="HinhthucThanhToan" Type="Boolean" />
+    <Property Name="HinhthucGiaoHang" Type="Boolean" />
+    <NavigationProperty Name="CTDATHANGs" Relationship="Self.FK_CTDATHANG_DATHANG" FromRole="DATHANG" ToRole="CTDATHANG" />
+    <NavigationProperty Name="Khach_Hang" Relationship="Self.FK_DATHANG_Khach_Hang" FromRole="DATHANG" ToRole="Khach_Hang" />
+  </EntityType>
+  <EntityType Name="Khach_Hang">
+    <Key>
+      <PropertyRef Name="Ma_KhachHang" />
+    </Key>
+    <Property Name="Ma_KhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="Gioi_tinh" Type="Boolean" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DienTHoai" Type="Int32" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="DaDuyet" Type="Boolean" />
+    <NavigationProperty Name="DATHANGs" Relationship="Self.FK_DATHANG_Khach_Hang" FromRole="Khach_Hang" ToRole="DATHANG" />
+  </EntityType>
+  <EntityType Name="NSX">
+    <Key>
+      <PropertyRef Name="Ma_NSX" />
+    </Key>
+    <Property Name="Ma_NSX" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenNSX" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Dia_Chi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Dien_Thoai" Type="Int32" />
+    <NavigationProperty Name="VanPhongPhams" Relationship="Self.FK_VanPhongPham_NSX" FromRole="NSX" ToRole="VanPhongPham" />
+  </EntityType>
+  <EntityType Name="NXB">
+    <Key>
+      <PropertyRef Name="Ma_NXB" />
+    </Key>
+    <Property Name="Ma_NXB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ten_NXB" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dia_Chi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DienThoai" Type="Int32" />
+    <NavigationProperty Name="Saches" Relationship="Self.FK_Sach_NXB1" FromRole="NXB" ToRole="Sach" />
+  </EntityType>
+  <EntityType Name="Sach">
+    <Key>
+      <PropertyRef Name="Ma_Sach" />
+    </Key>
+    <Property Name="Ma_Sach" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ten_Sach" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tac_Gia" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Don_Vi_tinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ma_NXB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="0" />
+    <Property Name="MaCD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MoTa" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuongBan" Type="Int32" />
+    <Property Name="SoLanxem" Type="Int32" />
+    <Property Name="Anh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChuDe" Relationship="Self.FK_Sach_ChuDe" FromRole="Sach" ToRole="ChuDe" />
+    <NavigationProperty Name="ChuDe1" Relationship="Self.FK_Sach_ChuDe1" FromRole="Sach" ToRole="ChuDe" />
+    <NavigationProperty Name="CTDATHANGs" Relationship="Self.FK_CTDATHANG_Sach" FromRole="Sach" ToRole="CTDATHANG" />
+    <NavigationProperty Name="NXB" Relationship="Self.FK_Sach_NXB1" FromRole="Sach" ToRole="NXB" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="VanPhongPham">
+    <Key>
+      <PropertyRef Name="Ma_VPP" />
+    </Key>
+    <Property Name="Ma_VPP" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ten_VPP" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Don_Vi_Tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Ma_NSX" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="0" />
+    <Property Name="Mota" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SoluongBan" Type="Int32" />
+    <Property Name="SoLanXem" Type="Int32" />
+    <Property Name="Anh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CTDATHANGs" Relationship="Self.FK_CTDATHANG_VanPhongPham" FromRole="VanPhongPham" ToRole="CTDATHANG" />
+    <NavigationProperty Name="NSX" Relationship="Self.FK_VanPhongPham_NSX" FromRole="VanPhongPham" ToRole="NSX" />
+  </EntityType>
+  <EntityType Name="QuanTriVien">
+    <Key>
+      <PropertyRef Name="Ma_QTV" />
+      <PropertyRef Name="HoNV" />
+      <PropertyRef Name="TenNV" />
+      <PropertyRef Name="GioiTinh" />
+      <PropertyRef Name="DiaChi" />
+    </Key>
+    <Property Name="Ma_QTV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HoNV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenNV" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GioiTinh" Type="Boolean" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenDangNhapNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhauQTV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Sach_ChuDe">
+    <End Role="ChuDe" Type="Self.ChuDe" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuDe">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaCD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sach_ChuDe1">
+    <End Role="ChuDe" Type="Self.ChuDe" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuDe">
+        <PropertyRef Name="MaCD" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaCD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDATHANG_DATHANG">
+    <End Role="DATHANG" Type="Self.DATHANG" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DATHANG">
+        <PropertyRef Name="SoHD" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="SoHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDATHANG_Sach">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="Ma_Sach" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="MaHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTDATHANG_VanPhongPham">
+    <End Role="VanPhongPham" Type="Self.VanPhongPham" Multiplicity="1" />
+    <End Role="CTDATHANG" Type="Self.CTDATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VanPhongPham">
+        <PropertyRef Name="Ma_VPP" />
+      </Principal>
+      <Dependent Role="CTDATHANG">
+        <PropertyRef Name="MaHangHoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DATHANG_Khach_Hang">
+    <End Role="Khach_Hang" Type="Self.Khach_Hang" Multiplicity="0..1" />
+    <End Role="DATHANG" Type="Self.DATHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Khach_Hang">
+        <PropertyRef Name="Ma_KhachHang" />
+      </Principal>
+      <Dependent Role="DATHANG">
+        <PropertyRef Name="Ma_KhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VanPhongPham_NSX">
+    <End Role="NSX" Type="Self.NSX" Multiplicity="0..1" />
+    <End Role="VanPhongPham" Type="Self.VanPhongPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NSX">
+        <PropertyRef Name="Ma_NSX" />
+      </Principal>
+      <Dependent Role="VanPhongPham">
+        <PropertyRef Name="Ma_NSX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sach_NXB1">
+    <End Role="NXB" Type="Self.NXB" Multiplicity="1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NXB">
+        <PropertyRef Name="Ma_NXB" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="Ma_NXB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="data_MBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChuDes" EntityType="Self.ChuDe" />
+    <EntitySet Name="CTDATHANGs" EntityType="Self.CTDATHANG" />
+    <EntitySet Name="DATHANGs" EntityType="Self.DATHANG" />
+    <EntitySet Name="Khach_Hang" EntityType="Self.Khach_Hang" />
+    <EntitySet Name="NSXes" EntityType="Self.NSX" />
+    <EntitySet Name="NXBs" EntityType="Self.NXB" />
+    <EntitySet Name="Saches" EntityType="Self.Sach" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="VanPhongPhams" EntityType="Self.VanPhongPham" />
+    <EntitySet Name="QuanTriViens" EntityType="Self.QuanTriVien" />
+    <AssociationSet Name="FK_Sach_ChuDe" Association="Self.FK_Sach_ChuDe">
+      <End Role="ChuDe" EntitySet="ChuDes" />
+      <End Role="Sach" EntitySet="Saches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sach_ChuDe1" Association="Self.FK_Sach_ChuDe1">
+      <End Role="ChuDe" EntitySet="ChuDes" />
+      <End Role="Sach" EntitySet="Saches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDATHANG_DATHANG" Association="Self.FK_CTDATHANG_DATHANG">
+      <End Role="DATHANG" EntitySet="DATHANGs" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDATHANG_Sach" Association="Self.FK_CTDATHANG_Sach">
+      <End Role="Sach" EntitySet="Saches" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTDATHANG_VanPhongPham" Association="Self.FK_CTDATHANG_VanPhongPham">
+      <End Role="VanPhongPham" EntitySet="VanPhongPhams" />
+      <End Role="CTDATHANG" EntitySet="CTDATHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DATHANG_Khach_Hang" Association="Self.FK_DATHANG_Khach_Hang">
+      <End Role="Khach_Hang" EntitySet="Khach_Hang" />
+      <End Role="DATHANG" EntitySet="DATHANGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VanPhongPham_NSX" Association="Self.FK_VanPhongPham_NSX">
+      <End Role="NSX" EntitySet="NSXes" />
+      <End Role="VanPhongPham" EntitySet="VanPhongPhams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sach_NXB1" Association="Self.FK_Sach_NXB1">
+      <End Role="NXB" EntitySet="NXBs" />
+      <End Role="Sach" EntitySet="Saches" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(data_MBModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(data_MBModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

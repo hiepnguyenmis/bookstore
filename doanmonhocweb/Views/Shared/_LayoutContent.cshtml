@@ -1,0 +1,168 @@
+﻿@{
+                /**/
+
+                if (@Session["HoKhachHang"] == null && @Session["TenKhachHang"] == null)
+                {
+                    ViewBag.TenKH = Session["TenDangNhap"];
+                }
+                else
+                {
+                    ViewBag.HoKH = Session["HoKhachHang"];
+                    ViewBag.TenKH = Session["TenKhachHang"];
+
+                }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="~/Content/image-header/banner1.ico" />
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <link href="~/Content/font/font.css" rel="stylesheet" />
+    <link href="~/Content/_LayoutPage_SingleProducts/_LayoutpageProducts.css" rel="stylesheet" />
+    <link href="~/Content/style/header.css" rel="stylesheet" />
+    <link href="~/Content/style/header2.css" rel="stylesheet" />
+    <link href="~/Content/style/index.css" rel="stylesheet" />
+    <link href="~/Content/style/content.css" rel="stylesheet" />
+    <link href="~/Content/style/footer.css" rel="stylesheet" />
+    <script src="~/Scripts/javascript/jquery-3.3.1.min.js"></script>
+    @*<script src="~/Scripts/javascript/cscoll.js"></script>*@
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="img_heder">
+                <img src="~/Content/image-header/header2.jpg" />
+            </div>
+            <div class="head-top">
+                <div id="contact">
+                    @{
+                        if (Session["MaKhachHang"] == null)
+                        {
+                            <ul style="padding-left:30%;">
+                                <li><a>@Html.ActionLink("Đăng Nhập", "signin", "User")</a></li>
+                                <li><a>@Html.ActionLink("Đăng Ký", "signup", "User")</a></li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul>
+                                <li><a>Xin Chào!</a></li>
+                                <li><a href="@Url.Action("InfomationCustomer","Customer",new {@Ma_Khach_Hang=Session["MaKhachHang"] })">@ViewBag.HoKH @ViewBag.TenKH </a></li>
+                                <li><a>@Html.ActionLink("Thoát?", "signout", "User")</a></li>
+                            </ul>
+
+                        }
+                    }
+
+                </div>
+                @Html.Action("PartialCart", "Cart")
+            </div>
+            <nav class="menu">
+                <a href="@Url.Action("Index","Home")">
+                    <div class="home">
+                        <img src="~/Content/image-header/logomebook.png" />
+                    </div>
+                </a>
+                <div class="main">
+                    <ul>
+                        <li>
+                            <a href="#"><b>SÁCH</b></a>
+                            <div class="sub-menu">
+                                <ul class="sub-menu-list">
+                                    <li><a href="@Url.Action("tatcasach","Category")"><b>Sách Tiếng Việt</b></a></li>
+                                    <li><a href="@Url.Action("Sach_Moi_Phat_Hanh","Category")">Sách mới phát hành</a></li>
+                                    <li><a href="@Url.Action("Sach_Van_Hoc","Category")">Sách văn Học</a></li>
+                                    <li><a href="@Url.Action("Sach_Thieu_Nhi","Category")">Sách thiếu nhi</a></li>
+                                    <li><a href="@Url.Action("Sach_Kinh_Te","Category")">Sách kinh tế</a></li>
+                                    <li><a href="@Url.Action("Truyen_Tranh","Category")">Truyện tranh Manga,Comic</a></li>
+                                </ul>
+                                <ul class="sub-menu-list">
+                                    <li><a href="@Url.Action("Tat_Ca_Ngoai_Van","Category")"><b>Sách Tiếng Anh</b></a></li>
+                                    <li><a href="@Url.Action("Sach_Ngoai_Van_Thieu_Nhi","Category")">Chidlren's Book</a></li>
+                                    <li><a href="@Url.Action("Sach_Ngoai_Van_Van_Hoc","Category")">Literature</a></li>
+                                    <li><a href="@Url.Action("Sach_Ngoai_Van_Kinh_Doanh","Category")">Business & Economics</a></li>
+                                    <li><a href="@Url.Action("Sach_Ngoai_Van_Giao_Duc","Category")">Education- Teaching</a></li>
+                                    <li><a href="@Url.Action("","Category")">Distionary</a></li>
+                                </ul>
+                                <ul class="sub-menu-list">
+                                    <li><b>Sách Giáo Dục</b></li>
+                                    <li><a href="@Url.Action("Sach_Giao_Khoa","Category")">Sách Giáo Khoa</a></li>
+                                    <li><a href="@Url.Action("Sach_Ky_Nang_Song","Category")">Sách Kỹ Năng Sống</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><b>VĂN PHÒNG PHẨM</b></a>
+                            <div class="sub-menu">
+                                <ul class="sub-menu-list">
+                                    <li><a href="#"><b>Tất cả</b></a></li>
+                                    <li><a href="#">Bán chạy</a></li>
+                                    <li><a href="#">Sản phẩm mới</a></li>
+                                    <li><a href="#">Dụng cụ học sinh</a></li>
+                                    <li><a href="#">Dụng cụ văn phòng</a></li>
+                                </ul>
+
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"><b>KHUYẾN MÃI</b></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sreach">
+                    <div class="sreach_box">
+                        @using (Html.BeginForm("KetQua", "Search", FormMethod.Post))
+                        {
+                            <button type="submit" id="btn_sreach">
+                                <img src="~/Content/image-header/img-iconsearch.svg" style="width:24px; height:24px;" />
+                            </button>
+                            <input type="text" name="sreach" placeholder="Bạn tìm gì...." id="box">
+                        }
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+        @RenderBody()
+        <footer>
+            <div class="main_footer">
+                <div class="support">
+                    <ul class="listsupport">
+                        <li><h5>HỖ TRỢ KHÁCH HÀNG</h5></li>
+                        <li class="hotline">
+                            Hotline Đặt Hàng:1800 7536
+                            <p>(Miễn phí , 8-21h kể cả T7, CN)</p>
+                        </li>
+                        <li class="hotline">
+                            Hotline:1900 7536
+                            <p>(1000đ/phút , 8-21h kể cả T7, CN)</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="conect">
+                    <h5>KẾT NỐI VỚI CHÚNG TÔI</h5>
+                    <div class="social">
+                        <div class="social-icon"><a href="#"><img src="~/Content/image-footer/facebook.svg" /></a></div>
+                        <div class="social-icon"><a href="#"><img src="~/Content/image-footer/instagram.svg" /></a></div>
+                        <div class="social-icon"><a href="#"><img src="~/Content/image-footer/twitter.svg" /></a></div>
+                        <div class="social-icon"><a href="#"><img src="~/Content/image-footer/google-plus.svg" /></a></div>
+                    </div>
+                </div>
+                <div class="local">
+                    <h5>CỬA HÀNG TẠI</h5>
+                    <div class="img_local">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.770872345412!2d106.67225901418412!3d10.980659758394763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d12739bb468f%3A0xe2bf4f397d0aa76!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBUaOG7pyBE4bqndSBN4buZdA!5e0!3m2!1svi!2s!4v1540120031222" frameborder="0" style="border:0" class="map" allowfullscreen></iframe>
+                    </div>
+                    <div class="address">
+                        <p>38,Lê Hồng Phong,Phường Phú Hòa,<br />TP.Thủ Dầu Một, Bình Dương</p>
+                    </div>
+                </div>
+                <div class="coppy">
+                    <a>&copy @DateTime.Now.Year - Bản Quyền Thuộc Cửa Hàng Sách ME&BOOK </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿@model doanmonhocweb.Models.Sach
+
+@{
+    ViewBag.Title = "Chi Tiết Sách";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdministrator.cshtml";
+}
+<title>Trang Quản Trị| @ViewBag.Title </title>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Areas/Admin/Content/AdminStyle/Adminstylesheet.css" rel="stylesheet" />
+<div class="contentAd">
+    <div>
+        <h2>Thông tin chi tiết sách</h2>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.Label("Mã Sách:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ma_Sach)
+            </dd>
+            <dt>
+                @Html.Label("Tên Sách:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ten_Sach)
+            </dd>
+
+            <dt>
+                @Html.Label("Tác Giả:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tac_Gia)
+            </dd>
+
+            <dt>
+                @Html.Label("Gia:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Gia)
+            </dd>
+
+            <dt>
+                @Html.Label("Đơn Vị Tính:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Don_Vi_Tinh)
+            </dd>
+
+            <dt>
+                @Html.Label("Ngày Thêm:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgayCapNhat)
+            </dd>
+
+            <dt>
+                @Html.Label("Mô Tả:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mota)
+            </dd>
+
+            <dt>
+                @Html.Label("Số Lượng Bán:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuongBan)
+            </dd>
+
+            <dt>
+                @Html.Label("Lượt Xem:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLanXem)
+            </dd>
+
+            <dt>
+                @Html.Label("Ảnh Bìa:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HinhAnh)
+            </dd>
+
+            <dt>
+                @Html.Label("Số Lượng Tồn Kho:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuongTon)
+            </dd>
+
+            <dt>
+                @Html.Label("Tên Chủ Đề:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChuDe.TenCD)
+            </dd>
+
+            <dt>
+                @Html.Label("Địa Chỉ:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NXB.DiaChi)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "Book")
+        @Html.ActionLink("Trở Về Danh Sách", "Book")
+    </p>
+</div>
+
+
